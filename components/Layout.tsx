@@ -10,7 +10,7 @@ type LayoutProps = {
 
 export default function Layout({children}: LayoutProps) {
     return (
-        <Box background={'body.100'}>
+        <Box background={'White'}>
             <SideBar />
 
             <Container maxW='container.xl' h="fit-content" p={0}>
