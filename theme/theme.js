@@ -8,11 +8,13 @@ import Tooltip from './components/tooltip';
 
 import styles from "./styles";
 import colors from './colors';
+import sizes from './sizes'
 
 
 const customTheme = extendTheme({
     styles,
     colors,
+    sizes,
     components: {
       Button: Button,
       Heading: Heading,

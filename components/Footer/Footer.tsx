@@ -14,7 +14,6 @@ export default function Footer() {
     return (
         <Box  bg="none" borderTop='solid 1px' borderColor='gray.200' zIndex={-1000} pb={{ base: '80px', lg:'0px'}}>
             <Container
-                pos={"absolute"} bottom={0} 
                 as={Stack}
                 maxW={'6xl'}
                 py={4}
