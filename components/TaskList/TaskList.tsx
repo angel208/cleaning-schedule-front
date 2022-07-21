@@ -13,8 +13,6 @@ const fetchTaskList = async (availableTime: number) =>{
     return data.json();
 }
 
-
-
 export default function TaskList({ sessionDuration = 0 } : {sessionDuration:number}) {
     const {data: tasks, isSuccess, isLoading, error, refetch} = useQuery('tasks', () => fetchTaskList(sessionDuration), {
         refetchOnWindowFocus: false,
