@@ -1,10 +1,13 @@
-import React from 'react'
-import { Container, Heading, Text, VStack } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { Button, ButtonGroup, Container, Heading, Text, VStack } from '@chakra-ui/react'
 import styles from '../styles/Home.module.css'
 import TaskList from '../components/TaskList/TaskList'
 import Head from 'next/head'
 
 export default function CleaningSession() {
+
+    const [sessionDuration, setsessionDuration] = useState(0)
+
     return (
       <div className={styles.container}>
       <Head>
@@ -14,7 +17,16 @@ export default function CleaningSession() {
       </Head>
 
       <Container maxW={'80p'} justifyContent={'start'} className={styles.main}>
-        <TaskList availableTime = {30} ></TaskList>
+        <Heading mb={8}>Let&apos;s Optimize yout cleaning session!</Heading>
+        <ButtonGroup variant='outline' spacing='6' colorScheme={"green"}>
+          <Button onClick={() => setsessionDuration(15)} >15m</Button>
+          <Button onClick={() => setsessionDuration(30)} >30m</Button>
+          <Button onClick={() => setsessionDuration(60)} >01h</Button>
+          <Button onClick={() => setsessionDuration(90)} >90m</Button>
+          <Button onClick={() => setsessionDuration(120)}>02h</Button>
+          <Button onClick={() => setsessionDuration(180)}>03h</Button>
+        </ButtonGroup>
+        <TaskList sessionDuration = {sessionDuration} ></TaskList>
       </Container>
 
     </div>

@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
       <Container maxW={'80p'} justifyContent={'start'} className={styles.main}>
         <Heading>All Cleaning Tasks</Heading>
-        <TaskList availableTime={0}></TaskList>
+        <TaskList sessionDuration={0}></TaskList>
       </Container>
 
     </div>

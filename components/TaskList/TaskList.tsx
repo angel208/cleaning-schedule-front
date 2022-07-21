@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery } from "react-query";
 import Loading from './Loading';
 import QueryError from './QueryError';
@@ -15,10 +15,14 @@ const fetchTaskList = async (availableTime: number) =>{
 
 
 
-export default function TaskList({ availableTime = 0 } : {availableTime:number}) {
-    const {data: tasks, isSuccess, isLoading, error, refetch} = useQuery('tasks', () => fetchTaskList(availableTime), {
+export default function TaskList({ sessionDuration = 0 } : {sessionDuration:number}) {
+    const {data: tasks, isSuccess, isLoading, error, refetch} = useQuery('tasks', () => fetchTaskList(sessionDuration), {
         refetchOnWindowFocus: false,
     });
+
+    useEffect(() => {
+        refetch();
+    }, [sessionDuration]);
 
     if(isLoading)
         return <Loading></Loading>
