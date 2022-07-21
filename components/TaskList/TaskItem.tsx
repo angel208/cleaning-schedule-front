@@ -2,8 +2,8 @@
 import { Box, Checkbox, Fade, Flex, HStack, IconButton, ScaleFade, Spacer, Spinner, VStack } from '@chakra-ui/react';
 import React, { useContext, useEffect, useState } from 'react'
 import { TaskDTO } from './TaskDTO'
-import { CgStopwatch, CgUndo, CgBrush, CgCheck } from 'react-icons/cg';
-import  getDateFormatted  from '../../utils/date.utils';
+import { CgStopwatch, CgUndo, CgPlayListCheck, CgCheck, CgClose } from 'react-icons/cg';
+import { getDateFormatted, getExpiredDays } from '../../utils/date.utils';
 import { useMutation } from 'react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -20,9 +20,17 @@ const patchTaskAsDone = async (taskId: string) =>{
     })
 }
 
+const calculateExpiryColor = (frequency: number, daysExpired: number): String => {
+    if( daysExpired < 0 )
+        return Math.abs(daysExpired)/frequency > 0.3 ? "green.400" : ""
+    else
+        return "red.400"
+}
+
 export default function TaskItem({ task, updateCallBack } : TaskProps) {
     const [done, setDone] = useState(false)
     const taskId = task._id;
+    const daysExpired = getExpiredDays(task.last_executed_deep, task.frequency_deep);
 
     const mutation = useMutation( () => {
         return patchTaskAsDone(taskId)
@@ -51,7 +59,11 @@ export default function TaskItem({ task, updateCallBack } : TaskProps) {
                     <HStack color={'gray.500'} spacing='16px'>
                         <HStack fontSize={{ base: 'xs', md: 'sm' }} ><CgStopwatch /><Box>{task.duration_deep}m</Box></HStack>
                         <HStack fontSize={{ base: 'xs', md: 'sm' }}><CgUndo /><Box>Every {task.frequency_deep} days</Box></HStack>
-                        <HStack fontSize={{ base: 'xs', md: 'sm' }}><CgBrush /><Box>{getDateFormatted(task.last_executed_deep as Date)}</Box></HStack>
+                        <HStack fontSize={{ base: 'xs', md: 'sm' }} color={`${calculateExpiryColor(task.frequency_deep, daysExpired)}`}>
+                            <CgPlayListCheck />
+                            <Box>{getDateFormatted(task.last_executed_deep as Date)}</Box>
+                            { daysExpired < 0 ? <CgCheck /> : <CgClose size={12} /> }
+                        </HStack>
                     </HStack>
                 </VStack>
                 
