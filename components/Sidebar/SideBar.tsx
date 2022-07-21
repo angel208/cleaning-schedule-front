@@ -1,5 +1,5 @@
 import React from 'react'
-import { CgClipboard, CgInfo, CgSandClock, CgTimer } from 'react-icons/cg';
+import { CgClipboard, CgInfo, CgAttribution, CgOptions } from 'react-icons/cg';
 import { Stack, Flex } from '@chakra-ui/react';
 import SideBarButton from './SideBarButton';
 
@@ -19,7 +19,8 @@ export default function SideBar() {
         background={'white'} 
         direction={{base:'row', lg:'column'}}>
             <SideBarButton route="/" Icon={CgClipboard} />
-            <SideBarButton route="/cleaning-session" Icon={CgTimer} />
+            <SideBarButton route="/cleaning-session" Icon={CgAttribution} />
+            <SideBarButton route="/task-manager" Icon={CgOptions} />
             <SideBarButton route="/about" Icon={CgInfo} />
         </Stack>
     )
