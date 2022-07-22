@@ -1,25 +1,23 @@
-import type { AppProps } from 'next/app'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { ChakraProvider } from '@chakra-ui/react'
-import { useState } from 'react';
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import customTheme from '../theme/theme';
+import { ReactElement, useState } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import customTheme from '../theme/theme'
 
-
-function MyApp({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient());
+function MyApp ({ Component, pageProps }: any): ReactElement {
+  const [queryClient] = useState(() => new QueryClient())
   return (
-    <ChakraProvider theme={customTheme}>  
+    <ChakraProvider theme={customTheme}>
       <QueryClientProvider client={queryClient}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </ChakraProvider>
-    
+
   )
 }
 
