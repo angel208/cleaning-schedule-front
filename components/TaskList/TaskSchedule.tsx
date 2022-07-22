@@ -14,8 +14,8 @@ const fetchTaskList = async (availableTime: number): Promise<any> => {
   return await data.json()
 }
 
-export default function TaskList ({ sessionDuration = 0 }: TaskScheduleProps): ReactElement {
-  const { data: tasks, isSuccess, isLoading, error, refetch } = useQuery('tasks', async () => await fetchTaskList(sessionDuration), {
+export default function TaskSchedule ({ sessionDuration = 0 }: TaskScheduleProps): ReactElement {
+  const { data: tasks, isSuccess, isLoading, error, refetch } = useQuery('task-schedule', async () => await fetchTaskList(sessionDuration), {
     refetchOnWindowFocus: false
   })
 

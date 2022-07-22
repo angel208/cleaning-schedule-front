@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react'
-import { Container } from '@chakra-ui/react'
+import { Container, Heading } from '@chakra-ui/react'
 import styles from '../styles/Home.module.css'
+import TaskList from '../components/TaskManager/TaskList'
 import Head from 'next/head'
+import CreateButton from '../components/TaskManager/CreateButton'
 
 export default function TaskManager (): ReactElement {
   return (
@@ -12,7 +14,10 @@ export default function TaskManager (): ReactElement {
         <link rel='icon' href='/favicon-cleaning2.png' />
       </Head>
 
-      <Container maxW='80p' justifyContent='start' className={styles.main} />
+      <Container maxW='80p' justifyContent='start' className={styles.main}>
+        <Heading mb={8}>Your Tasks</Heading>
+        <TaskList />
+      </Container>
 
     </div>
   )

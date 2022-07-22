@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import { Button, ButtonGroup, Container, Heading } from '@chakra-ui/react'
 import styles from '../styles/Home.module.css'
-import TaskList from '../components/TaskList/TaskList'
+import TaskSchedule from '../components/TaskList/TaskSchedule'
 import Head from 'next/head'
 
 export default function CleaningSession (): ReactElement {
@@ -25,7 +25,7 @@ export default function CleaningSession (): ReactElement {
           <Button onClick={() => setsessionDuration(120)}>02h</Button>
           <Button onClick={() => setsessionDuration(180)}>03h</Button>
         </ButtonGroup>
-        <TaskList sessionDuration={sessionDuration} />
+        <TaskSchedule sessionDuration={sessionDuration} />
       </Container>
 
     </div>
