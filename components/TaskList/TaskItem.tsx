@@ -1,16 +1,11 @@
 
 import { Box, Flex, HStack, IconButton, Spacer, Spinner, VStack } from '@chakra-ui/react'
 import React, { ReactElement, useState } from 'react'
-import { TaskDTO } from './TaskDTO'
 import { CgStopwatch, CgUndo, CgPlayListCheck, CgCheck, CgClose } from 'react-icons/cg'
 import { getDateFormatted, getExpiredDays } from '../../utils/date.utils'
 import { useMutation } from 'react-query'
 import { motion } from 'framer-motion'
-
-interface TaskProps {
-  task: TaskDTO
-  updateCallBack: Function
-}
+import { TaskProps } from '../../types/props'
 
 const patchTaskAsDone = async (taskId: string): Promise<any> => {
   const baseUrl = 'http://127.0.0.1:3000/'

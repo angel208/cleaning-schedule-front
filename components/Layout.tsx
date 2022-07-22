@@ -2,10 +2,7 @@ import React, { ReactElement } from 'react'
 import Footer from './Footer/Footer'
 import SideBar from './Sidebar/SideBar'
 import { Container, Box } from '@chakra-ui/react'
-
-interface LayoutProps {
-  children: React.ReactNode
-}
+import { LayoutProps } from '../types/props'
 
 export default function Layout ({ children }: LayoutProps): ReactElement {
   return (

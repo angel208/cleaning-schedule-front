@@ -1,12 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Box } from '@chakra-ui/react'
 import Link from 'next/link'
-import { IconType } from 'react-icons'
-
-interface SidebarButtonProps {
-  Icon: IconType
-  route: string
-}
+import { SidebarButtonProps } from '../../types/props'
 
 export default function SideBarButton ({ Icon, route }: SidebarButtonProps): ReactElement {
   return (

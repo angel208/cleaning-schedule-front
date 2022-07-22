@@ -4,12 +4,7 @@ import {
   VisuallyHidden
 } from '@chakra-ui/react'
 import { ReactElement } from 'react'
-
-interface SocialButtonProps {
-  children: React.ReactNode
-  label: string
-  href: string
-}
+import { SocialButtonProps } from '../../types/props'
 
 export default function SocialButton ({ children, label, href }: SocialButtonProps): ReactElement {
   return (

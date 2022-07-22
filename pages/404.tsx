@@ -9,7 +9,7 @@ export default function NotFound (): ReactElement {
 
   useEffect(() => {
     setTimeout(() => {
-      router.push('/')
+      void router.push('/')
     }, 5000)
   }, [])
 
