@@ -1,9 +1,9 @@
-const styles =  {
-    global: {
-      'html, body': {
-        background: 'body.500'
-      }
-    },
+const styles = {
+  global: {
+    'html, body': {
+      background: 'body.500'
+    }
+  }
 }
 
-export default styles  
+export default styles
