@@ -1,8 +1,8 @@
 import { Container, Heading } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import TaskList from '../components/TaskList/TaskList'
 import styles from '../styles/Home.module.css'
+import TaskSchedule from '../components/TaskList/TaskSchedule'
 
 const Home: NextPage = () => {
   return (
@@ -14,9 +14,9 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon-cleaning2.png' />
       </Head>
 
-      <Container maxW='80p' justifyContent='start' className={styles.main}>
+      <Container maxW={{ base: 'full', md: '80p' }} justifyContent='start' className={styles.main}>
         <Heading>All Cleaning Tasks</Heading>
-        <TaskList sessionDuration={0} />
+        <TaskSchedule sessionDuration={0} />
       </Container>
 
     </div>
