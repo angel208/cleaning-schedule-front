@@ -6,12 +6,13 @@ import Loading from '../TaskList/Loading'
 import QueryError from '../TaskList/QueryError'
 import TaskCard from './TaskCard'
 import CreateButton from './CreateButton'
+import axios from 'axios'
 
 const fetchTasks = async (): Promise<any> => {
   const baseUrl = 'http://127.0.0.1:3000/'
   const endPoint = 'task'
-  const data = await fetch(baseUrl + endPoint)
-  return await data.json()
+  const data = await (await axios.get(baseUrl + endPoint)).data
+  return data
 }
 
 export default function TaskList (): ReactElement {

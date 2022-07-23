@@ -1,5 +1,6 @@
 
 import { AlertDialog, AlertDialogBody, AlertDialogCloseButton, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Button, useDisclosure, useToast } from '@chakra-ui/react'
+import axios from 'axios'
 import React, { ReactElement } from 'react'
 import { useMutation } from 'react-query'
 import { DeleteConfirmationProps } from '../../types/props'
@@ -7,9 +8,7 @@ import { DeleteConfirmationProps } from '../../types/props'
 const deleteTask = async (taskId: string): Promise<any> => {
   const baseUrl = 'http://127.0.0.1:3000/'
   const endPoint = `task/${taskId}`
-  return await fetch(baseUrl + endPoint, {
-    method: 'DELETE'
-  })
+  return await axios.delete(baseUrl + endPoint)
 }
 
 export default function DeleteButton ({ taskId, fetchCallBack }: DeleteConfirmationProps): ReactElement {

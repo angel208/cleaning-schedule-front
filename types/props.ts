@@ -1,5 +1,6 @@
 import { Task } from './task'
 import { IconType } from 'react-icons'
+import { MouseEventHandler } from 'react'
 
 export interface LayoutProps {
   children: React.ReactNode
@@ -26,7 +27,7 @@ export interface CreateTaskProps {
 
 export interface TaskModalProps {
   isOpen: boolean
-  onOpen: Function
+  onOpen: MouseEventHandler<HTMLButtonElement>
   onClose: Function
   taskToUpdate: Task | null
   callback: Function

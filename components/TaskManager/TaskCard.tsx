@@ -8,7 +8,7 @@ import EditButton from './EditButton'
 
 export default function TaskItem ({ task, updateCallBack }: TaskProps): ReactElement {
   const taskId = task._id
-  const priorityMap = ['Very High', 'High', 'Medium', 'Low', 'Very Low']
+  const priorityMap = ['Default', 'Very High', 'High', 'Medium', 'Low', 'Very Low']
 
   return (
     <>
