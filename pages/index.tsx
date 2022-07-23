@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon-cleaning2.png' />
       </Head>
 
-      <Container maxW='80p' justifyContent='start' className={styles.main}>
+      <Container maxW={{ base: 'full', md: '80p' }} justifyContent='start' className={styles.main}>
         <Heading>All Cleaning Tasks</Heading>
         <TaskSchedule sessionDuration={0} />
       </Container>

@@ -14,7 +14,7 @@ export default function TaskItem ({ task, updateCallBack }: TaskProps): ReactEle
     <>
       <Flex direction={{ base: 'column', sm: 'row' }} padding='6' boxShadow='lg' bg='white' w='full'>
         <VStack align='left'>
-          <Box fontSize='xl'>{task.name}</Box>
+          <Box fontSize='xl' pl={{ base: 2, lg: 0 }} textAlign='left'>{task.name}</Box>
           <Stack direction={{ base: 'column', sm: 'row' }} color='gray.500' spacing='16px'>
             <HStack fontSize={{ base: 'xs', md: 'sm' }}>
               <Box display={{ base: 'none', lg: 'block' }}><CgStopwatch /></Box>

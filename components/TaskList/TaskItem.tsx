@@ -1,5 +1,5 @@
 
-import { Box, Flex, HStack, IconButton, Spacer, Spinner, VStack } from '@chakra-ui/react'
+import { Box, Flex, HStack, IconButton, Spacer, Spinner, Stack, VStack } from '@chakra-ui/react'
 import React, { ReactElement, useState } from 'react'
 import { CgStopwatch, CgUndo, CgPlayListCheck, CgCheck, CgClose } from 'react-icons/cg'
 import { getDateFormatted, getExpiredDays } from '../../utils/date.utils'
@@ -47,7 +47,7 @@ export default function TaskItem ({ task, updateCallBack }: TaskProps): ReactEle
         <Flex padding='6' boxShadow='lg' bg='white' w='full'>
           <VStack align='left'>
             <Box fontSize='xl'>{task.name}</Box>
-            <HStack color='gray.500' spacing='16px'>
+            <Stack direction={{ base: 'column', sm: 'row' }} color='gray.500' spacing='16px'>
               <HStack fontSize={{ base: 'xs', md: 'sm' }}><CgStopwatch /><Box>{task.duration_deep}m</Box></HStack>
               <HStack fontSize={{ base: 'xs', md: 'sm' }}><CgUndo /><Box>Every {task.frequency_deep} days</Box></HStack>
               <HStack fontSize={{ base: 'xs', md: 'sm' }} color={`${calculateExpiryColor(task.frequency_deep, daysExpired)}`}>
@@ -55,7 +55,7 @@ export default function TaskItem ({ task, updateCallBack }: TaskProps): ReactEle
                 <Box>{getDateFormatted(task.last_executed_deep)}</Box>
                 {daysExpired < 0 ? <CgCheck /> : <CgClose size={12} />}
               </HStack>
-            </HStack>
+            </Stack>
           </VStack>
 
           {mutation.isError
