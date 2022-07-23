@@ -38,7 +38,7 @@ export default function TaskModal ({ isOpen, onClose, taskToUpdate, callback }: 
             <Box>Frequency (Days):</Box>
             <Input placeholder='Frequency' type='number' size='sm' value={(task?.frequency_deep != null) ? task.frequency_deep : ''} onChange={handleChange} name='frequency_deep' />
             <Box>Priority:</Box>
-            <Select isRequired size='sm' value={(task?.priority != null) ? task.priority : ''} onChange={handleChange} name='priority'>
+            <Select isRequired placeholder='select..' size='sm' value={(task?.priority != null) ? task.priority : '0'} onChange={handleChange} name='priority'>
               <option value='1'>Very High</option>
               <option value='2'>High</option>
               <option value='3'>Medium</option>

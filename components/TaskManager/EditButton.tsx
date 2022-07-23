@@ -60,7 +60,7 @@ export default function EditButton ({ task, fetchCallBack }: UpdateTaskProps): R
   }
   return (
     <>
-      <Button leftIcon={<CgPen />} onClick={onOpen} colorScheme='teal' variant='solid'>
+      <Button size={{ base: 'xs', sm: 'sm', lg: 'md' }} leftIcon={<CgPen />} onClick={onOpen} colorScheme='teal' variant='solid'>
         Update
       </Button>
       <TaskModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} taskToUpdate={task} callback={updateItem} />

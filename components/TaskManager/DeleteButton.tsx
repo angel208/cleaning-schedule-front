@@ -39,7 +39,7 @@ export default function DeleteButton ({ taskId, fetchCallBack }: DeleteConfirmat
   }
   return (
     <>
-      <Button onClick={onOpen} colorScheme='teal' variant='outline'>
+      <Button size={{ base: 'xs', sm: 'sm', lg: 'md' }} onClick={onOpen} colorScheme='teal' variant='outline'>
         Delete
       </Button>
       <AlertDialog
