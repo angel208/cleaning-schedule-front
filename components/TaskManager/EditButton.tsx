@@ -1,6 +1,6 @@
 
 import { Button, useDisclosure, useToast } from '@chakra-ui/react'
-import axios from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 import React, { ReactElement } from 'react'
 import { CgPen } from 'react-icons/cg'
 import { useMutation } from 'react-query'
@@ -45,10 +45,11 @@ export default function EditButton ({ task, fetchCallBack }: UpdateTaskProps): R
         onClose()
       },
       onError: (error, variables, context) => {
+        const e = error as AxiosError
         toast({
           colorScheme: 'red',
           title: 'Task Not Updated.',
-          description: `Something went wrong: ${error.response.data.message as string}`,
+          description: `Something went wrong: ${((e.response) as AxiosResponse).data.message as string}`,
           status: 'error',
           variant: 'left-accent',
           position: 'top-right',

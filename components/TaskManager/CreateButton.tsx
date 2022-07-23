@@ -6,7 +6,7 @@ import { useMutation } from 'react-query'
 import { CreateTaskProps } from '../../types/props'
 import { Task } from '../../types/task'
 import TaskModal from './TaskModal'
-import axios from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 
 const createTask = async (newTask: Task): Promise<any> => {
   const baseUrl = 'http://127.0.0.1:3000/'
@@ -44,10 +44,11 @@ export default function CreateButton ({ fetchCallBack }: CreateTaskProps): React
         onClose()
       },
       onError: (error, variables, context) => {
+        const e = error as AxiosError
         toast({
           colorScheme: 'red',
           title: 'Task Not Created.',
-          description: `Something went wrong: ${error.response.data.message as string}`,
+          description: `Something went wrong: ${((e.response) as AxiosResponse).data.message as string}`,
           status: 'error',
           variant: 'left-accent',
           position: 'top-right',

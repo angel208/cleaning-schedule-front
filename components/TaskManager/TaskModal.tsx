@@ -1,6 +1,6 @@
 
 import { Box, Button, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Stack } from '@chakra-ui/react'
-import React, { ReactElement } from 'react'
+import React, { ChangeEvent, ReactElement } from 'react'
 import { TaskModalProps } from '../../types/props'
 import { Task } from '../../types/task'
 
@@ -12,7 +12,7 @@ export default function TaskModal ({ isOpen, onClose, taskToUpdate, callback }: 
     callback(task)
   }
 
-  const handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
+  const handleChange = (event: React.FormEvent<HTMLInputElement>|ChangeEvent<HTMLSelectElement>): void => {
     const inputVal = (event.target as HTMLTextAreaElement).value
     const inputName = (event.target as HTMLTextAreaElement).name
 
